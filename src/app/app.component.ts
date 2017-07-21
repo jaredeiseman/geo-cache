@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  loggedIn: boolean;
+
+  constructor(private authService: AuthenticationService) {
+    this.authService.user.subscribe(user => {
+      if (user == null) {
+        this.loggedIn = false;
+      } else {
+        this.loggedIn = true;
+      }
+    });
+  }
+
+  login() {
+    this.authService.login();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
 }

@@ -4,6 +4,7 @@ import { GeoCache } from '../../models/geo-cache.model';
 
 import { DatabaseService } from '../../services/database.service';
 import { GeoCodingService } from '../../services/geo-coding.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-add-geo-cache',
@@ -15,7 +16,8 @@ export class AddGeoCacheComponent implements OnInit {
   toggle: string = null;
 
   constructor(private db: DatabaseService,
-              private gc: GeoCodingService) { }
+              private gc: GeoCodingService,
+              private authService: AuthenticationService) { }
 
   ngOnInit() {
   }
@@ -31,11 +33,15 @@ export class AddGeoCacheComponent implements OnInit {
         .subscribe((res) => {
 
           var address = res.json().results[0].formatted_address;
+          var user: string;
 
-          newCache = new GeoCache(d.lat, d.long, address, d.name, d.description);
+          this.authService.user.subscribe((data) => {
+            user = data.displayName;
 
-          this.db.addCache(newCache);
-          
+            newCache = new GeoCache(d.lat, d.long, address, d.name, d.description,user);
+
+            this.db.addCache(newCache);
+          });
         });
 
     } else if (d.toggle === 'address') {
@@ -47,11 +53,15 @@ export class AddGeoCacheComponent implements OnInit {
           var address = res.json().results[0].formatted_address;
           var lat = res.json().results[0].geometry.location.lat;
           var long = res.json().results[0].geometry.location.lng;
+          var user: string;
 
-          newCache = new GeoCache(lat, long, address, d.name, d.description);
+          this.authService.user.subscribe((data) => {
+            user = data.displayName;
 
-          this.db.addCache(newCache);
+            newCache = new GeoCache(lat, long, address, d.name, d.description, user);
 
+            this.db.addCache(newCache);
+          });
         });
     }
   }

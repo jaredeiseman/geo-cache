@@ -3,5 +3,6 @@ export class GeoCache {
               public long: string,
               public address: string,
               public name: string,
-              public description: string) {}
+              public description: string,
+              public creatorName: string) {}
 }

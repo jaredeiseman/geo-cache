@@ -6,9 +6,11 @@ import { routing } from './router/app.routing';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { DatabaseService } from './services/database.service';
 import { GeoCodingService } from './services/geo-coding.service';
+import { AuthenticationService } from './services/authentication.service';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -39,9 +41,10 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [DatabaseService, GeoCodingService],
+  providers: [DatabaseService, GeoCodingService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

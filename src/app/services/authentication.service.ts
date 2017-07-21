@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
 
   user: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.authState;
   }
 
@@ -18,6 +19,7 @@ export class AuthenticationService {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
   }
 
 }

@@ -1,5 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+
+import { AuthGuardService } from '../services/auth-guard.service';
 
 import { WelcomeComponent } from '../components/welcome/welcome.component';
 import { AddGeoCacheComponent } from '../components/add-geo-cache/add-geo-cache.component';
@@ -14,7 +16,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'add',
-    component: AddGeoCacheComponent
+    component: AddGeoCacheComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'viewall',

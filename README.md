@@ -1,28 +1,61 @@
-# GeoCaching
+# GcPS - Geo-cache Positioning System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+#### An app that allows users to add geocaches to a database and view information about them
 
-## Development server
+#### By Jared Eiseman
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description
+This application allows authenticated users to add geocaches to a database that are available to be viewed by all unauthenticated users as a list, and more details when it's title is clicked.
 
-## Code scaffolding
+The project is viewable live at https://club-manager-1cecc.firebaseapp.com
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Planning
 
-## Build
+### User Story
+* As a user, I want to be able to add to the site a new geocache that I have hidden. I want to be able to add it by either physical address or GPS coordinates (latitude and longitude). I should also be able to add myself as the creator of this geocache.
+* As a user, I want to be able to view a listing of all geocaches that have been added to the site.
+* As a user, when I click on a particular geocache from the list, I would like to see both the physical address and the GPS coordinates, as well as the creator for that geocache listing.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Setup/Installation Requirements
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Clone the repository (https://github.com/jaredeiseman/geo-cache.git)
+* Run 'npm install' in your chosen terminal application
+* Run 'ng serve' in your chosen terminal application for a development server.
+  * ng build --prod will create a minified, deployable version of the project in the dist folder at root level
+* Login to Firebase and initialize a new project, choosing the option to integrate firebase into web app from the console
+* Create 'api-keys.ts' in the src/app/ directory
+* Add your firebase credentials to 'api-keys.ts' in the following format:
+export var masterFirebaseConfig = {
+  apiKey: "xxxxxx",
+  authDomain: "xxxxx.firebaseapp.com",
+  databaseURL: "https://xxxxxxx.firebaseio.com",
+  projectId: "xxxxxxxxxx",
+  storageBucket: "xxxxxxxxx.appspot.com",
+  messagingSenderId: "xxxxxxxxxx"
+};
 
-## Running end-to-end tests
+## Known Bugs
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+There are no known bugs at this time.
 
-## Further help
+## Support and contact details
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For feedback or support contact Jared Eiseman at jathei@gmail.com.
+
+## Technologies Used
+
+* HTML
+* CSS
+* Sass
+* JavaScript
+* Angular
+* NPM
+* Firebase Database
+* Firebase User Authentication
+
+### License
+
+MIT
+
+Copyright (c) 2017 Jared Eiseman

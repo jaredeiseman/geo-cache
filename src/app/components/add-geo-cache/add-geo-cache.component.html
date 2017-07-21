@@ -6,9 +6,9 @@
   <label for="description">Description: </label>
   <textarea name="description" ngModel></textarea>
 
-  <label for="toggle">Location type:</label>
+  <label for="toggle" id="location-label">Location type:</label>
   <input type="radio" name="toggle" value="latlong" (click)="toggleDisplay('latlong')" checked ngModel> Lat-Long
-  <input type="radio" name="toggle" value="address" (click)="toggleDisplay('address')" ngModel> Address
+  <input type="radio" name="toggle" value="address" (click)="toggleDisplay('address')" ngModel id="address"> Address
 
   <!-- lat long -->
   <div *ngIf="toggle === 'latlong'">

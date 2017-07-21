@@ -1,0 +1,56 @@
+label {
+  display: block;
+}
+
+button {
+  display: block;
+}
+
+input, textarea, button {
+  margin-bottom: 30px;
+}
+
+input[type="text"], textarea {
+  width: 50%;
+  max-width: 50%;
+  border: 1px solid black;
+}
+
+#address {
+  margin-left: 80px;
+}
+
+input[type="text"], textarea {
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 18px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+textarea {
+  height: 150px;
+  min-height: 150px;
+}
+
+label {
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 10px 40px;
+  font-size: 20px;
+  border-radius: 6px;
+  border: 1px solid black;
+  cursor: pointer;
+  background: white;
+  transition: all .3s;
+
+  &:hover {
+    color: white;
+    border: 1px solid transparent;
+    background: #000;
+  }
+}

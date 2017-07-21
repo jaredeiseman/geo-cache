@@ -18,9 +18,9 @@ export class AddGeoCacheComponent implements OnInit {
 
   addCache(form: NgForm) {
     var d = form.value;
-    var newCache = new GeoCache(d.lat, d.long, d.name, d.description);
+    // var newCache = new GeoCache(d.lat, d.long, d.name, d.description);
 
-    this.db.addCache(newCache);
+    // this.db.addCache(newCache);
   }
 
 }

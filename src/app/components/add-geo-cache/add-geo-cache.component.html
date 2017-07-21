@@ -2,11 +2,40 @@
 <form #formData="ngForm" (ngSubmit)="addCache(formData); false">
   <label for="name">Name: </label>
   <input type="text" name="name" ngModel>
+
   <label for="description">Description: </label>
   <textarea name="description" ngModel></textarea>
-  <label for="lat">Latitude: </label>
-  <input type="text" name="lat" ngModel>
-  <label for="long">Longitutde: </label>
-  <input type="text" name="long" ngModel>
+
+  <label for="toggle">Location type:</label>
+  <input type="radio" name="toggle" value="latlong" (click)="toggleDisplay('latlong')" checked ngModel> Lat-Long
+  <input type="radio" name="toggle" value="address" (click)="toggleDisplay('address')" ngModel> Address
+
+  <!-- lat long -->
+  <div *ngIf="toggle === 'latlong'">
+    <label for="lat">Latitude: </label>
+    <input type="text" name="lat" ngModel>
+
+    <label for="long">Longitutde: </label>
+    <input type="text" name="long" ngModel>
+  </div>
+
+  <!-- address -->
+  <div *ngIf="toggle === 'address'">
+    <label for="streetNumber">Street Number: </label>
+    <input type="text" name="streetNumber" ngModel>
+
+    <label for="street">Street: </label>
+    <input type="text" name="street" ngModel>
+
+    <label for="city">City: </label>
+    <input type="text" name="city" ngModel>
+
+    <label for="state">State: </label>
+    <input type="text" name="state" ngModel>
+
+    <label for="zipCode">Zip Code: </label>
+    <input type="text" name="zipCode" ngModel>
+  </div>
+
   <button type="submit">Submit</button>
 </form>

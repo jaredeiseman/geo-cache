@@ -8,6 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { DatabaseService } from './services/database.service';
+import { GeoCodingService } from './services/geo-coding.service';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -34,7 +35,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [DatabaseService],
+  providers: [DatabaseService, GeoCodingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

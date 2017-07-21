@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { GeoCache } from '../../models/geo-cache.model';
+import { Router } from '@angular/router';
 
 import { DatabaseService } from '../../services/database.service';
 import { GeoCodingService } from '../../services/geo-coding.service';
@@ -17,7 +18,8 @@ export class AddGeoCacheComponent implements OnInit {
 
   constructor(private db: DatabaseService,
               private gc: GeoCodingService,
-              private authService: AuthenticationService) { }
+              private authService: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -41,6 +43,7 @@ export class AddGeoCacheComponent implements OnInit {
             newCache = new GeoCache(d.lat, d.long, address, d.name, d.description,user);
 
             this.db.addCache(newCache);
+            this.router.navigate(['/viewall']);
           });
         });
 
@@ -61,6 +64,7 @@ export class AddGeoCacheComponent implements OnInit {
             newCache = new GeoCache(lat, long, address, d.name, d.description, user);
 
             this.db.addCache(newCache);
+            this.router.navigate(['/viewall']);
           });
         });
     }

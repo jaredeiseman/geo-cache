@@ -11,7 +11,7 @@ export class ViewAllCachesComponent implements OnInit {
 
   caches: any;
 
-  constructor(private db: DatabaseService, private router: Router) { }
+  constructor(public db: DatabaseService, private router: Router) { }
 
   ngOnInit() {
     this.caches = this.db.getCaches();

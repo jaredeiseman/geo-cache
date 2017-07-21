@@ -7,7 +7,7 @@
 ## Description
 This application allows authenticated users to add geocaches to a database that are available to be viewed by all unauthenticated users as a list, and more details when it's title is clicked.
 
-The project is viewable live at https://club-manager-1cecc.firebaseapp.com
+The project is viewable live at https://geo-caching.firebaseapp.com
 
 ## Planning
 

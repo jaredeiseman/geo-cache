@@ -13,6 +13,8 @@ import { GeoCodingService } from './services/geo-coding.service';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AddGeoCacheComponent } from './components/add-geo-cache/add-geo-cache.component';
+import { ViewAllCachesComponent } from './components/view-all-caches/view-all-caches.component';
+import { ViewDetailComponent } from './components/view-detail/view-detail.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -25,7 +27,9 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    AddGeoCacheComponent
+    AddGeoCacheComponent,
+    ViewAllCachesComponent,
+    ViewDetailComponent
   ],
   imports: [
     BrowserModule,

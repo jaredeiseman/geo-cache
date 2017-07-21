@@ -1,0 +1,12 @@
+<h2>Add a cache</h2>
+<form #formData="ngForm" (ngSubmit)="addCache(formData); false">
+  <label for="name">Name: </label>
+  <input type="text" name="name" ngModel>
+  <label for="description">Description: </label>
+  <textarea name="description" ngModel></textarea>
+  <label for="lat">Latitude: </label>
+  <input type="text" name="lat" ngModel>
+  <label for="long">Longitutde: </label>
+  <input type="text" name="long" ngModel>
+  <button type="submit">Submit</button>
+</form>
